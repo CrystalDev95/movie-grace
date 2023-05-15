@@ -1,0 +1,6 @@
+export { default as Home } from './home/Home.jsx'
+export { default as NotFound } from './NotFound.jsx'
+export { default as SearchResult } from './SearchResult/SearchResult.jsx'
+export { default as Explore } from '../pages/Explore/Explore.jsx'
+export { default as Details } from '../pages/Details/Details.jsx'
+export { default as DetailsBanner } from '../pages/Details/DetailsBanner.jsx'
