@@ -39,7 +39,7 @@ const Header = () => {
   }, [lastScrollY])
 
   const searchQueryHandler = (e) => {
-    if (e.key === "Enter" && query.length > 0) {
+    if ((e.key === "Enter") && query.length > 0) {
       navigate(`/search/${query}`);
       setTimeout(() => {
         setShowSearch(false);
