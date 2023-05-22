@@ -13,20 +13,17 @@ const SearchResult = () => {
   const [pageNum, setPageNum] = useState(1);
   const [loading, setLoading] = useState(false);
   const { query } = useParams();
-  const TOKEN = import.meta.env.VITE_APP_TMDB_TOKEN;
 
-  const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization: 'Bearer sha512-/Efbz/ffA2j1qwewVMA+MWVCbTOuSmr3w/YEkclaOSaXSc6M5EpSJzVtOid/csJGv8uirMcOVv80JPfwsr6xtA==?yF-0'
-    }
-  };
+  const TMDB_TOKEN = import.meta.env.VITE_APP_TMDB_TOKEN;
   
 
   const fetchInitialData = () => {
     setLoading(true);
-    fetchDataFromApi(`authentication/search/multi?query=${query}&page=${pageNum}`, options).then(
+    fetchDataFromApi(`/search/multi?query=${query}&page=${pageNum}`, {
+      headers:{
+          'Authorization':`Bearer ${TMDB_TOKEN}`
+      }
+  }).then(
       (res) => {
         setData(res);
         setPageNum((prev) => prev + 1);
